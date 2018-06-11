@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeatherViewController: UITableViewController {
+class WeatherViewController: UIViewController {
 
     @IBOutlet var cityName: UILabel!
     @IBOutlet var weatherLabel: UILabel!

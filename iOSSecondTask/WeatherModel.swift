@@ -7,66 +7,67 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-struct WeatherModel: Codable {
-    let cod: String
-    let message: Double
-    let cnt: Int
+struct WeatherModel {
     let list: [List]
     let city: City
+    
+    enum CodingKeys: String, CodingKey {
+        case list = "list"
+        case city = "city"
+    }
 }
 
-struct City: Codable {
-    let id: Int
+struct City {
     let name: String
-    let coord: Coord
-    let country: String
-    let population: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "Bishkek"
+    }
 }
 
-struct Coord: Codable {
-    let lat, lon: Double
+struct Coord {
+    let lat: Double
+    let lon: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case lat = "lat"
+        case lon = "lon"
+    }
 }
 
-struct List: Codable {
-    let dt: Int
+struct List {
     let main: MainClass
     let weather: [Weather]
-    let clouds: Clouds
-    let wind: Wind
-    let rain: Rain
-    let sys: Sys
     let dtTxt: String
+}
+
+struct Clouds {
+    let all: Int
     
     enum CodingKeys: String, CodingKey {
-        case dt, main, weather, clouds, wind, rain, sys
-        case dtTxt = "dt_txt"
+        case all = "all"
     }
 }
 
-struct Clouds: Codable {
-    let all: Int
-}
-
-struct MainClass: Codable {
-    let temp, tempMin, tempMax, pressure: Double
-    let seaLevel, grndLevel: Double
+struct MainClass {
+    let temp: Double
+    let tempMin: Double
+    let tempMax: Double
+    let pressure: Double
     let humidity: Int
-    let tempKf: Double
     
     enum CodingKeys: String, CodingKey {
-        case temp
+        case temp = "temp"
         case tempMin = "temp_min"
         case tempMax = "temp_max"
-        case pressure
-        case seaLevel = "sea_level"
-        case grndLevel = "grnd_level"
-        case humidity
-        case tempKf = "temp_kf"
+        case pressure = "pressure"
+        case humidity = "humidity"
     }
 }
 
-struct Rain: Codable {
+struct Rain {
     let the3H: Double?
     
     enum CodingKeys: String, CodingKey {
@@ -74,8 +75,12 @@ struct Rain: Codable {
     }
 }
 
-struct Sys: Codable {
+struct Sys {
     let pod: Pod
+    
+    enum CodingKeys: String, CodingKey {
+        case pod = "pod"
+    }
 }
 
 enum Pod: String, Codable {
@@ -83,11 +88,14 @@ enum Pod: String, Codable {
     case n = "n"
 }
 
-struct Weather: Codable {
-    let id: Int
+struct Weather {
     let main: MainEnum
     let description: Description
-    let icon: String
+    
+    enum CodingKeys: String, CodingKey {
+        case main = "main"
+        case description = "description"
+    }
 }
 
 enum Description: String, Codable {
@@ -104,6 +112,13 @@ enum MainEnum: String, Codable {
     case rain = "Rain"
 }
 
-struct Wind: Codable {
-    let speed, deg: Double
+struct Wind {
+    let speed: Double
+    let deg: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case speed = "speed"
+        case deg = "deg"
+    }
 }
+

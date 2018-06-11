@@ -15,6 +15,7 @@
 		5209DC3B20CA907000D6D257 /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 5209DC3A20CA86DB00D6D257 /* weather.json */; };
 		5209DC3D20CB142600D6D257 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209DC3C20CB142500D6D257 /* WeatherViewController.swift */; };
 		5209DC3F20CB188600D6D257 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209DC3E20CB188600D6D257 /* WeatherModel.swift */; };
+		5209DC4020CEEC9400D6D257 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5209DC4120CEEC9400D6D257 /* SwiftyJSON.framework */; };
 		6E07DC0BD98E943029EB3A2D /* Pods_iOSSecondTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4511D66776B7FB80B046C5D3 /* Pods_iOSSecondTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		5209DC3A20CA86DB00D6D257 /* weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weather.json; sourceTree = "<group>"; };
 		5209DC3C20CB142500D6D257 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		5209DC3E20CB188600D6D257 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		5209DC4120CEEC9400D6D257 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C12C975ADAF73924DEFE7D /* Pods-iOSSecondTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSecondTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSSecondTask/Pods-iOSSecondTask.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5209DC4020CEEC9400D6D257 /* SwiftyJSON.framework in Frameworks */,
 				6E07DC0BD98E943029EB3A2D /* Pods_iOSSecondTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +95,7 @@
 		A7248DB3267A66F3C32CBC83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5209DC4120CEEC9400D6D257 /* SwiftyJSON.framework */,
 				4511D66776B7FB80B046C5D3 /* Pods_iOSSecondTask.framework */,
 			);
 			name = Frameworks;
