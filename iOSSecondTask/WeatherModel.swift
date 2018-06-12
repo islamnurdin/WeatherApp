@@ -12,19 +12,10 @@ import SwiftyJSON
 struct WeatherModel {
     let list: [List]
     let city: City
-    
-    enum CodingKeys: String, CodingKey {
-        case list = "list"
-        case city = "city"
-    }
 }
 
 struct City {
     let name: String
-    
-    enum CodingKeys: String, CodingKey {
-        case name = "Bishkek"
-    }
 }
 
 struct Coord {
@@ -38,10 +29,13 @@ struct Coord {
 }
 
 struct List {
+    let dt: Int
     let main: MainClass
     let weather: [Weather]
     let dtTxt: String
+    
 }
+
 
 struct Clouds {
     let all: Int
@@ -73,19 +67,6 @@ struct Rain {
     enum CodingKeys: String, CodingKey {
         case the3H = "3h"
     }
-}
-
-struct Sys {
-    let pod: Pod
-    
-    enum CodingKeys: String, CodingKey {
-        case pod = "pod"
-    }
-}
-
-enum Pod: String, Codable {
-    case d = "d"
-    case n = "n"
 }
 
 struct Weather {

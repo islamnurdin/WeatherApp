@@ -17,6 +17,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var mainClass = [MainClass]()
     var cityClass = [City]()
     var weatherClass = [Weather]()
+    var listClass = [List]()
+    var tableOpened = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,28 +63,57 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     // Displaying on tableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weatherData.count
         
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = weatherData[indexPath.row].list.first?.dtTxt
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "displayDetails", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "displayDetails" {
-            let destination = segue.destination as? WeatherViewController
-            destination?.weatherModel = weatherData[(tableView.indexPathForSelectedRow?.row)!]
+        if tableOpened == true{
+            return 1
         } else{
-            print("you can't do anything mfker")
+            return weatherClass.count + 1
+
         }
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dataIndex = indexPath.row - 1
+        if indexPath.row == 0{
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {return UITableViewCell()}
+            cell.textLabel?.text = cityClass[indexPath.section].name
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {return UITableViewCell()}
+            if let filepath = Bundle.main.path(forResource: "weather", ofType: "json") {
+                do{
+                    let data = try Data(contentsOf: URL(fileURLWithPath: filepath))
+                    let json = try JSON(data: data)
+                    let main = self.weatherClass[dataIndex].main.rawValue
+                    let descrp = self.weatherClass[dataIndex].description.rawValue
+                    
+                    // index out of range. Bad instruction shows here.
+                    //let date = self.listClass[dataIndex].dtTxt
+                    
+                    for item in json["list"].arrayValue{
+                        for _ in item["weather"].arrayValue{
+                            cell.textLabel?.text = "date" + " - " + main + ": " + descrp
+                        }
+                    }
+                } catch{
+                    print("error in displaying on sections")
+                }
+            }
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableOpened == true{
+            tableOpened = false
+            let sections = IndexSet.init(integer: indexPath.section)
+            tableView.reloadSections(sections, with: .none)
+        } else {
+            tableOpened = true
+            let sections = IndexSet.init(integer: indexPath.section)
+            tableView.reloadSections(sections, with: .none)
+        }
+    }
     // Parsing JSON
     func getJSONData(completed: @escaping () -> ()) {
         if let filepath = Bundle.main.path(forResource: "weather", ofType: "json") {
