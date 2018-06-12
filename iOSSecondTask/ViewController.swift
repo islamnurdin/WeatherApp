@@ -86,13 +86,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     let json = try JSON(data: data)
                     let main = self.weatherClass[dataIndex].main.rawValue
                     let descrp = self.weatherClass[dataIndex].description.rawValue
+                    let temp = self.mainClass[dataIndex].temp
                     
                     // index out of range. Bad instruction shows here.
                     //let date = self.listClass[dataIndex].dtTxt
                     
                     for item in json["list"].arrayValue{
                         for _ in item["weather"].arrayValue{
-                            cell.textLabel?.text = "date" + " - " + main + ": " + descrp
+                            cell.textLabel?.text = "date" + " - " + main + ": " + descrp + " Temp: " + "\(temp)"
                         }
                     }
                 } catch{
