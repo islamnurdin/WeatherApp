@@ -29,13 +29,10 @@ struct Coord {
 }
 
 struct List {
-    let dt: Int
     let main: MainClass
     let weather: [Weather]
     let dtTxt: String
-    
 }
-
 
 struct Clouds {
     let all: Int

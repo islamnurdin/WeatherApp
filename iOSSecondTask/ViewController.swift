@@ -40,10 +40,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let temp = result["main"]["temp"].doubleValue
             let pressure = result["main"]["pressure"].doubleValue
             let humidity = result["main"]["humidity"].intValue
+            let dt_txt = result["dt_txt"].stringValue
             
             let weatherMain = MainClass(temp: temp, tempMin: temp_min, tempMax: temp_max, pressure: pressure, humidity: humidity)
             mainClass.append(weatherMain)
+            
+            let listMain = List(main: weatherMain, weather: weatherClass, dtTxt: dt_txt)
+            listClass.append(listMain)
             print("success" + "\(mainClass)")
+            print("LIST: " + "\(listClass)")
             
             for result1 in result["weather"].arrayValue{
                 let main = result1["main"].stringValue
@@ -87,13 +92,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     let main = self.weatherClass[dataIndex].main.rawValue
                     let descrp = self.weatherClass[dataIndex].description.rawValue
                     let temp = self.mainClass[dataIndex].temp
-                    
-                    // index out of range. Bad instruction shows here.
-                    //let date = self.listClass[dataIndex].dtTxt
+                    let date = self.listClass[dataIndex].dtTxt
                     
                     for item in json["list"].arrayValue{
                         for _ in item["weather"].arrayValue{
-                            cell.textLabel?.text = "date" + " - " + main + ": " + descrp + " Temp: " + "\(temp)"
+                            cell.textLabel?.text = date + " " + main + ": " + descrp + " T:" + "\(temp)"
                         }
                     }
                 } catch{
