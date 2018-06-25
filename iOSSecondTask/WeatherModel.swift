@@ -21,11 +21,6 @@ struct City {
 struct Coord {
     let lat: Double
     let lon: Double
-    
-    enum CodingKeys: String, CodingKey {
-        case lat = "lat"
-        case lon = "lon"
-    }
 }
 
 struct List {
@@ -37,7 +32,7 @@ struct List {
 struct Clouds {
     let all: Int
     
-    enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String {
         case all = "all"
     }
 }
@@ -49,7 +44,7 @@ struct MainClass {
     let pressure: Double
     let humidity: Int
     
-    enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String {
         case temp = "temp"
         case tempMin = "temp_min"
         case tempMax = "temp_max"
@@ -60,23 +55,19 @@ struct MainClass {
 
 struct Rain {
     let the3H: Double?
-    
-    enum CodingKeys: String, CodingKey {
-        case the3H = "3h"
-    }
 }
 
 struct Weather {
     let main: MainEnum
     let description: Description
     
-    enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String {
         case main = "main"
         case description = "description"
     }
 }
 
-enum Description: String, Codable {
+enum Description: String {
     case clearSky = "clear sky"
     case fewClouds = "few clouds"
     case lightRain = "light rain"
@@ -84,7 +75,7 @@ enum Description: String, Codable {
     case scatteredClouds = "scattered clouds"
 }
 
-enum MainEnum: String, Codable {
+enum MainEnum: String {
     case clear = "Clear"
     case clouds = "Clouds"
     case rain = "Rain"
@@ -93,10 +84,5 @@ enum MainEnum: String, Codable {
 struct Wind {
     let speed: Double
     let deg: Double
-    
-    enum CodingKeys: String, CodingKey {
-        case speed = "speed"
-        case deg = "deg"
-    }
 }
 

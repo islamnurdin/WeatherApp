@@ -12,6 +12,7 @@ import SwiftyJSON
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var open: UIBarButtonItem!
     
     var weatherData = [WeatherModel]()
     var mainClass = [MainClass]()
@@ -23,6 +24,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //showing sidebar via button
+        open.target = self.revealViewController()
+        open.action = #selector(SWRevealViewController.revealToggle(_:))
+        
+       //showing sidebar via gesture recognizer
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
         getJSONData {
             self.tableView.reloadData()
         }
@@ -31,8 +39,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
     }
     
-    // Converting JSON
-    
+    //converting JSON  
     func parse(json: JSON) {
         for result in json["list"].arrayValue {
             let temp_min = result["main"]["temp_min"].doubleValue
@@ -47,25 +54,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             let listMain = List(main: weatherMain, weather: weatherClass, dtTxt: dt_txt)
             listClass.append(listMain)
-            print("success" + "\(mainClass)")
-            print("LIST: " + "\(listClass)")
+            //print("success" + "\(mainClass)")
+            //print("LIST: " + "\(listClass)")
             
             for result1 in result["weather"].arrayValue{
                 let main = result1["main"].stringValue
                 let description = result1["description"].stringValue
                 let weather = Weather(main: MainEnum(rawValue: main)!, description: Description(rawValue: description)!)
                 weatherClass.append(weather)
-                print("SUCCESS " + "\(weatherClass)")
+                //print("SUCCESS " + "\(weatherClass)")
             }
         }
         
-            let cityName = json["city"]["name"].stringValue
-            let city = City(name: cityName)
-            cityClass.append(city)
-            print("SUCCESS!!!: \(cityName)" + "\(cityClass)")
+        let cityName = json["city"]["name"].stringValue
+        let city = City(name: cityName)
+        cityClass.append(city)
+        print("SUCCESS!!!: \(cityName)" + "\(cityClass)")
         
     }
-
+    //end of converting JSON
+    
     // Displaying on tableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -81,7 +89,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let dataIndex = indexPath.row - 1
         if indexPath.row == 0{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {return UITableViewCell()}
-            cell.textLabel?.text = cityClass[indexPath.section].name
+            cell.textLabel?.text = cityClass[indexPath.row].name
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {return UITableViewCell()}
@@ -118,7 +126,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView.reloadSections(sections, with: .none)
         }
     }
-    // Parsing JSON
+    //end of displaying
+    
+    // Parsing JSON file
     func getJSONData(completed: @escaping () -> ()) {
         if let filepath = Bundle.main.path(forResource: "weather", ofType: "json") {
                 do{
