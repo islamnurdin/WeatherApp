@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  iOSSecondTask
+
+  Created by MacBook Pro on 7/6/18.
+  Copyright © 2018 Islam & Co. All rights reserved.
+*/
+
+"weather" = "Погода";
+"Today" = "Cегодня";
+"Sunday" = "Воскресенье";
+"Monday" = "Понедельник";
+"Tuesday" = "Вторник";
+"Wednesday" = "Среда";
+"Thursday" = "Четверг";
+"Friday" = "Пятница";
+"Saturday" = "Суббота";
+"Jul" = "Июля";
+"city" = "Бишкек";
+"Clouds" = "Пасмурно";
+"Clear" = "Ясное небо";
+"Rain" = "Дожди";

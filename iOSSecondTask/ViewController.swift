@@ -75,7 +75,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //end of converting JSON
     
     // Displaying on tableView
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         
         if tableOpened == true{
             return 1
@@ -89,7 +90,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let dataIndex = indexPath.row - 1
         if indexPath.row == 0{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {return UITableViewCell()}
-            cell.textLabel?.text = cityClass[indexPath.row].name
+            cell.textLabel?.text = NSLocalizedString("city", comment: "city name")
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {return UITableViewCell()}
@@ -146,6 +147,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("file not found")
         }
     }
-    
 }
 

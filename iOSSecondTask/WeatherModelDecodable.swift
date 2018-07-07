@@ -6,97 +6,55 @@
 //
 
 import Foundation
+import Alamofire
 
-struct WeatherModelDecodable: Decodable{
-    let list: [List]
-    let city: City
-    
-    enum CodingKeys: String, CodingKey {
+struct WeatherModelDecodable: Codable {
+    let list: [ListDecodable]
+    let city: CityDecodable
+    enum CodinKeys: String, CodingKey{
         case list = "list"
         case city = "city"
     }
 }
 
-struct CityDecodable: Decodable {
-    let id: Int
+struct CityDecodable: Codable {
     let name: String
-    let country: String
-    let population: Int
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case country = "country"
-        case population = "population"
-    }
 }
-
-struct ListDecodable: Decodable {
-    let dt: Int
-    let main: MainDecodable
+struct ListDecodable: Codable {
+    let dt: Date
+    let main: MainClassDecodable
     let weather: [WeatherDecodable]
-    let clouds: CloudsDecodable
-    let wind: WindDecodable
-    let rain: RainDecodable
     let dtTxt: String
     
-    enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey{
         case dt = "dt"
         case main = "main"
         case weather = "weather"
-        case clouds = "clouds"
-        case wind = "wind"
-        case rain = "rain"
         case dtTxt = "dt_txt"
     }
-}
-
-struct CloudsDecodable: Decodable {
-    let all: Int
     
-    enum CodingKeys: String, CodingKey {
-        case all = "all"
-    }
 }
-
-struct MainDecodable: Decodable {
+struct MainClassDecodable: Codable {
     let temp: Double
     let tempMin: Double
-    
+    let tempMax: Double
+    let pressure: Double
+    let humidity: Int
+
     enum CodingKeys: String, CodingKey {
         case temp = "temp"
         case tempMin = "temp_min"
+        case tempMax = "temp_max"
+        case pressure = "pressure"
+        case humidity = "humidity"
     }
 }
-
-struct RainDecodable: Decodable {
-    let the3H: Double
-    
-    enum CodingKeys: String, CodingKey {
-        case the3H = "3h"
-    }
-}
-
-struct WeatherDecodable: Decodable {
-    let id: Int
+struct WeatherDecodable: Codable {
     let main: String
     let description: String
-    let icon: String
-    
+
     enum CodingKeys: String, CodingKey {
-        case id = "id"
         case main = "main"
         case description = "description"
-        case icon = "icon"
-    }
-}
-
-struct WindDecodable: Decodable {
-    let speed: Double
-    let deg: Double
-    
-    enum CodingKeys: String, CodingKey {
-        case speed = "speed"
-        case deg = "deg"
     }
 }

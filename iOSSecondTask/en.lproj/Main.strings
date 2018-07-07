@@ -1,0 +1,45 @@
+
+/* Class = "UINavigationItem"; title = "Bishkek Weather "; ObjectID = "1o1-D3-9HF"; */
+"1o1-D3-9HF.title" = "Bishkek Weather ";
+
+/* Class = "UILabel"; text = "day"; ObjectID = "4dh-GO-sBm"; */
+"4dh-GO-sBm.text" = "day";
+
+/* Class = "UILabel"; text = "city"; ObjectID = "9nh-no-7Rv"; */
+"9nh-no-7Rv.text" = "city";
+
+/* Class = "UILabel"; text = "Weekday"; ObjectID = "M5T-8Y-0Vh"; */
+"M5T-8Y-0Vh.text" = "Weekday";
+
+/* Class = "UILabel"; text = "description"; ObjectID = "W9O-59-Qa1"; */
+"W9O-59-Qa1.text" = "description";
+
+/* Class = "UIBarButtonItem"; title = "Open"; ObjectID = "cfx-Ew-XKa"; */
+"cfx-Ew-XKa.title" = "Open";
+
+/* Class = "UINavigationItem"; title = "Погода"; ObjectID = "f5e-Uv-EcG"; */
+"f5e-Uv-EcG.title" = "Погода";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "jVf-yf-sqv"; */
+"jVf-yf-sqv.text" = "Title";
+
+/* Class = "UILabel"; text = "Неделя"; ObjectID = "l1a-Nw-at8"; */
+"l1a-Nw-at8.text" = "Неделя";
+
+/* Class = "UILabel"; text = "Ночь"; ObjectID = "mGQ-dF-e6c"; */
+"mGQ-dF-e6c.text" = "Ночь";
+
+/* Class = "UILabel"; text = "date"; ObjectID = "o5Z-lf-3MK"; */
+"o5Z-lf-3MK.text" = "date";
+
+/* Class = "UILabel"; text = "night"; ObjectID = "wKA-Mc-hnG"; */
+"wKA-Mc-hnG.text" = "night";
+
+/* Class = "UILabel"; text = "Temp"; ObjectID = "way-kl-YvP"; */
+"way-kl-YvP.text" = "Temp";
+
+/* Class = "UIBarButtonItem"; title = "Главная"; ObjectID = "xBz-jK-VmO"; */
+"xBz-jK-VmO.title" = "Главная";
+
+/* Class = "UILabel"; text = "День"; ObjectID = "z7Z-gW-cZo"; */
+"z7Z-gW-cZo.text" = "День";
