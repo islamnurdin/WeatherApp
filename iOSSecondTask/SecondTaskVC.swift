@@ -28,8 +28,6 @@ class SecondTaskVC: UIViewController, UICollectionViewDelegate, UICollectionView
     @IBOutlet weak var collView: UICollectionView!
     
     override func viewDidLoad() {
-    
-        
         setupMainButton()
         collView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -39,11 +37,7 @@ class SecondTaskVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     private func setupMainButton() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: self, action: #selector(mainButtonClicked))
-    }
-    
-    @objc private func mainButtonClicked() {
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
     }
     
     func getData(completed : @escaping ()->()) {
