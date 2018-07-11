@@ -27,7 +27,7 @@ struct ListDecodable: Codable {
     let dtTxt: String
     
     enum CodingKeys: String, CodingKey{
-        case dt = "dt"
+        case dt  = "dt"
         case main = "main"
         case weather = "weather"
         case dtTxt = "dt_txt"
