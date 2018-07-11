@@ -54,15 +54,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             let listMain = List(main: weatherMain, weather: weatherClass, dtTxt: dt_txt)
             listClass.append(listMain)
-            //print("success" + "\(mainClass)")
-            //print("LIST: " + "\(listClass)")
             
             for result1 in result["weather"].arrayValue{
                 let main = result1["main"].stringValue
                 let description = result1["description"].stringValue
                 let weather = Weather(main: MainEnum(rawValue: main)!, description: Description(rawValue: description)!)
                 weatherClass.append(weather)
-                //print("SUCCESS " + "\(weatherClass)")
             }
         }
         

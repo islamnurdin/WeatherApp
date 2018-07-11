@@ -15,7 +15,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dayTemp: UILabel!
     
     @IBOutlet weak var nightTemp: UILabel!
-    
+        
     @IBOutlet weak var dayLabel: UILabel!
     
 }

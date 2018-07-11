@@ -21,6 +21,7 @@
 		520ADC4720F1397300940E0F /* Cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 520ADC4420F1397200940E0F /* Cloud.png */; };
 		520ADC4820F1397300940E0F /* Rain.png in Resources */ = {isa = PBXBuildFile; fileRef = 520ADC4520F1397300940E0F /* Rain.png */; };
 		520ADC4A20F13BB000940E0F /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 520ADC4920F13BB000940E0F /* warning.png */; };
+		5297F71020F4A7180098B6B5 /* WeatherForCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5297F70F20F4A7180098B6B5 /* WeatherForCell.swift */; };
 		52E71FC420DBBF6100C53C8D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E71FC220DBBF6100C53C8D /* SWRevealViewController.m */; };
 		52E71FC620DCD18C00C53C8D /* SideBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E71FC520DCD18C00C53C8D /* SideBarVC.swift */; };
 		52E71FC820DF7AFA00C53C8D /* SecondTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E71FC720DF7AFA00C53C8D /* SecondTaskVC.swift */; };
@@ -52,6 +53,7 @@
 		520ADC4420F1397200940E0F /* Cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud.png; sourceTree = "<group>"; };
 		520ADC4520F1397300940E0F /* Rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rain.png; sourceTree = "<group>"; };
 		520ADC4920F13BB000940E0F /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
+		5297F70F20F4A7180098B6B5 /* WeatherForCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForCell.swift; sourceTree = "<group>"; };
 		52E71FC120DBBF6000C53C8D /* iOSSecondTask-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSSecondTask-Bridging-Header.h"; sourceTree = "<group>"; };
 		52E71FC220DBBF6100C53C8D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		52E71FC320DBBF6100C53C8D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				52E71FCB20DF90D600C53C8D /* WeatherModelDecodable.swift */,
 				52E71FD120E562D700C53C8D /* WeatherCollectionViewCell.swift */,
 				520ADC4120EF710200940E0F /* Extensions.swift */,
+				5297F70F20F4A7180098B6B5 /* WeatherForCell.swift */,
 				520ADC3F20EF4C9A00940E0F /* Localizable.strings */,
 				5209DC2B20C5235C00D6D257 /* Main.storyboard */,
 				5209DC2E20C5235C00D6D257 /* Assets.xcassets */,
@@ -273,6 +276,7 @@
 				5209DC2A20C5235C00D6D257 /* ViewController.swift in Sources */,
 				5209DC3F20CB188600D6D257 /* WeatherModel.swift in Sources */,
 				5209DC2820C5235C00D6D257 /* AppDelegate.swift in Sources */,
+				5297F71020F4A7180098B6B5 /* WeatherForCell.swift in Sources */,
 				52E71FC420DBBF6100C53C8D /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
