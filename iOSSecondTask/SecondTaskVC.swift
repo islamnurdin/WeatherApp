@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class SecondTaskVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class SecondTaskVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var weatherModel: WeatherModelDecodable?
     var textArray = [ListDecodable]()
@@ -24,19 +24,26 @@ class SecondTaskVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     @IBOutlet weak var weekLabel: UILabel!
     
-    @IBOutlet weak var main: UIBarButtonItem!
     
     @IBOutlet weak var collView: UICollectionView!
     
     override func viewDidLoad() {
+    
         
-        main.target = self.revealViewController()
-        main.action = #selector(SWRevealViewController.revealToggle(_:))
-        
+        setupMainButton()
+        collView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         getData {
             self.collView.reloadData()
         }
+    }
+    
+    private func setupMainButton() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Main", style: .plain, target: self, action: #selector(mainButtonClicked))
+    }
+    
+    @objc private func mainButtonClicked() {
+        
     }
     
     func getData(completed : @escaping ()->()) {
@@ -136,7 +143,7 @@ class SecondTaskVC: UIViewController, UICollectionViewDelegate, UICollectionView
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCollectionViewCell", for: indexPath) as! WeatherCollectionViewCell
         
         cell.dayCollection.addBottomBorderWithColor(color: UIColor(red: 0, green: 0.7294, blue: 0.2275, alpha: 1.0), width: 1.6, height: 2.2)
-        cell.dayLabel.addBottomBorderWithColor(color: UIColor(red: 0.8863, green: 0.8863, blue: 0.8863, alpha: 1.0), width: 2.0, height: 2.0)
+
         
         cell.dayCollection.text = myWeatherArray[indexPath.row].weekDay
         cell.dayTemp.text = myWeatherArray[indexPath.row].tempDay
@@ -186,4 +193,8 @@ class SecondTaskVC: UIViewController, UICollectionViewDelegate, UICollectionView
         print(indexPath.section, indexPath.item)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height = collectionView.frame.size.height
+        return CGSize(width: height, height: height)
+    }
 }
